@@ -19,6 +19,7 @@
 
     <modules>
         <module>eureka-service</module>
+        <module>eureka-client</module>
     </modules>
 
     <properties>
