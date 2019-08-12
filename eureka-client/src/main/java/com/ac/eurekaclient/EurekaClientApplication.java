@@ -23,7 +23,12 @@ public class EurekaClientApplication {
 
     @RequestMapping("/")
     public String home() {
-        return "Hello world";
+        return "Hello home";
+    }
+
+    @RequestMapping("/index")
+    public String index() {
+        return "Hello index";
     }
 
     public static void main(String[] args) {
