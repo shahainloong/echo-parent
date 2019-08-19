@@ -1,5 +1,7 @@
 package com.ac.eurekaclient;
 
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -18,17 +20,20 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SpringBootApplication
 @EnableEurekaClient
+@EnableApolloConfig
 @RestController
 public class EurekaClientApplication {
+    @Value("${sap.employee.name:hailong}")
+    private String sapName;
 
     @RequestMapping("/")
     public String home() {
-        return "Hello home";
+        return "Hello SAPer, I am from eureka-client, and my name is " + sapName;
     }
 
     @RequestMapping("/index")
     public String index() {
-        return "Hello index";
+        return "Hello SAP" + sapName;
     }
 
     public static void main(String[] args) {
